@@ -24,7 +24,7 @@ All scene copy, captions, dates, photo details, and the music path are in [`src/
 
 ### Photos and videos
 
-The 12 supplied photos are included as WebP files in `public/photos/`, with smaller responsive copies in `public/photos/variants/`. The five supplied clips are included in `public/videos/` with poster frames. They play only when tapped, one at a time; background music lowers while a video plays. Three clips contain saved screen recordings, including a conversation, so keep that in mind before changing the Site from private to public.
+The 13 supplied photos are included as WebP files in `public/photos/`, with smaller responsive copies in `public/photos/variants/`. `bhumi-bhondlu.webp` shows Bhumi with BHONDLU, her white duck soft toy. The four current clips are included in `public/videos/` with poster frames. They play only when tapped, one at a time; background music lowers while a video plays. The Site is private because these are personal memories.
 
 To add more photos, put `.avif`, `.webp`, `.jpg`, or `.png` files in `public/photos/`. A manifest is generated automatically before `npm run dev` and `npm run build`. Filenames containing `solo` or `bhumi` enter the "Just you" scene. The featured horizontal gallery is curated through `galleryOrder` in `src/content.ts`.
 

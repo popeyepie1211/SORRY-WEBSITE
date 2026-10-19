@@ -13,6 +13,7 @@ const photoDetails: Record<string, Partial<Photo>> = {
   'bhumi-shy-smile.webp': { kind: 'solo', caption: 'Even when you hide your smile, I still see how beautiful you are.', alt: 'Bhumi peeking over her hands at a table', focalPoint: '50% 34%', srcSet: responsive('bhumi-shy-smile.webp', 960) },
   'bhumi-silly-face.webp': { kind: 'solo', caption: 'Even your silliest faces are beautiful to me.', alt: 'Bhumi making a playful face for the camera', focalPoint: '50% 30%', srcSet: responsive('bhumi-silly-face.webp', 959) },
   'bhumi-soft-toys.webp': { kind: 'solo', caption: "Even among all those soft toys, you're the one I couldn't look away from.", alt: 'Bhumi holding plush toys in a shop', focalPoint: '56% 48%', srcSet: responsive('bhumi-soft-toys.webp', 720) },
+  'bhumi-bhondlu.webp': { kind: 'solo', caption: 'That smile with BHONDLU in your arms is so beautiful to me.', alt: 'Bhumi smiling while holding BHONDLU, a white duck soft toy', focalPoint: '50% 42%', srcSet: responsive('bhumi-bhondlu.webp', 720) },
   'bhumi-flowers.webp': { kind: 'solo', caption: 'The flowers were lovely. You were the loveliest part of the day.', alt: 'Bhumi holding a bouquet of vivid red flowers', focalPoint: '50% 59%', srcSet: responsive('bhumi-flowers.webp', 960) },
   'bhumi-snack.webp': { kind: 'solo', caption: 'I love how beautiful you are in the moments you never pose for.', alt: 'Bhumi taking a bite of a snack', focalPoint: '50% 40%', srcSet: responsive('bhumi-snack.webp', 723) },
   'bhumi-night.webp': { kind: 'solo', caption: 'The city lights had nothing on how beautiful you looked.', alt: 'Bhumi sitting outside at night under city lights', focalPoint: '50% 42%', srcSet: responsive('bhumi-night.webp', 960) },
@@ -21,8 +22,8 @@ const photoDetails: Record<string, Partial<Photo>> = {
   'bhumi-closeup.webp': { kind: 'solo', caption: 'That little smile is the prettiest thing I know.', alt: 'Close-up of Bhumi smiling while looking down', focalPoint: '50% 32%', srcSet: responsive('bhumi-closeup.webp', 720) },
   'bhumi-platform.webp': { kind: 'solo', caption: 'You make even an ordinary platform look beautiful.', alt: 'Bhumi standing on a train platform', focalPoint: '62% 43%', srcSet: responsive('bhumi-platform.webp', 960) },
 };
-const photoOrder = ['us-sunset.webp', 'us-restaurant.webp', 'bhumi-shy-smile.webp', 'bhumi-silly-face.webp', 'bhumi-soft-toys.webp', 'bhumi-flowers.webp', 'bhumi-snack.webp', 'bhumi-night.webp', 'bhumi-mirror.webp', 'bhumi-mango.webp', 'bhumi-closeup.webp', 'bhumi-platform.webp'];
-const galleryOrder = ['us-sunset.webp', 'us-restaurant.webp', 'bhumi-shy-smile.webp', 'bhumi-soft-toys.webp', 'bhumi-flowers.webp', 'bhumi-night.webp'];
+const photoOrder = ['us-sunset.webp', 'us-restaurant.webp', 'bhumi-shy-smile.webp', 'bhumi-silly-face.webp', 'bhumi-soft-toys.webp', 'bhumi-bhondlu.webp', 'bhumi-flowers.webp', 'bhumi-snack.webp', 'bhumi-night.webp', 'bhumi-mirror.webp', 'bhumi-mango.webp', 'bhumi-closeup.webp', 'bhumi-platform.webp'];
+const galleryOrder = ['us-sunset.webp', 'us-restaurant.webp', 'bhumi-shy-smile.webp', 'bhumi-bhondlu.webp', 'bhumi-flowers.webp', 'bhumi-night.webp'];
 const loadedPhotos: Photo[] = generatedPhotoPaths.map((src, index) => {
   const name = decodeURIComponent(src.split('/').pop() ?? 'photo');
   const kind: Photo['kind'] = /solo|bhumi/i.test(name) ? 'solo' : 'couple';
@@ -52,7 +53,7 @@ export const content = {
     close: 'Close', showLetter: 'Show the full letter', openLetter: 'Open the letter',
     flipReason: 'Tap to turn over', photoPlaceholder: 'ADD PHOTO HERE', photoOpen: 'Open photo', photoPrevious: 'Previous photo', photoNext: 'Next photo',
     musicOnLabel: 'ON', musicOffLabel: 'OFF',
-    videoPlay: 'Play video', videoHeading: 'Little moving moments', videoIntro: 'Some memories are better left moving.',
+    videoPlay: 'Play video', videoHeading: 'Little moments on repeat', videoIntro: 'A few seconds I never want to forget.',
     soloPrevious: 'Previous portrait', soloNext: 'Next portrait',
     pause: 'Feel the heartbeat', vibrationOff: 'Turn vibration off',
     addAnniversary: 'Add our anniversary date to begin the count',
@@ -100,11 +101,10 @@ export const content = {
     ] as Photo[],
     soloPhotos: loadedPhotos.filter((photo) => photo.kind === 'solo'),
     videos: [
-      { src: '/videos/moment-01.mp4', poster: '/videos/posters/moment-01.webp', caption: 'A little piece of you I saved.', alt: 'Saved screen recording of a short Bhumi video' },
-      { src: '/videos/moment-02.mp4', poster: '/videos/posters/moment-02.webp', caption: 'One of those clips I could watch again and again.', alt: 'Saved screen recording of Bhumi smiling on camera' },
-      { src: '/videos/moment-03.mp4', poster: '/videos/posters/moment-03.webp', caption: 'A little piece of our conversations.', alt: 'Saved screen recording of a conversation and a Bhumi video' },
-      { src: '/videos/moment-04.mp4', poster: '/videos/posters/moment-04.webp', caption: 'Just you, being you.', alt: 'Video of Bhumi showing her outfit' },
-      { src: '/videos/moment-05.mp4', poster: '/videos/posters/moment-05.webp', caption: 'A moment together on the stairs.', alt: 'Video of Arya and Bhumi together on stairs' },
+      { src: '/videos/moment-01.mp4', poster: '/videos/posters/moment-01.webp', caption: 'I love that little smile of yours.', alt: 'Bhumi smiling softly by a window' },
+      { src: '/videos/moment-02.mp4', poster: '/videos/posters/moment-02.webp', caption: 'You look beautiful in every little glance.', alt: 'Bhumi looking into the camera in a blue patterned top' },
+      { src: '/videos/moment-03.mp4', poster: '/videos/posters/moment-03.webp', caption: 'I love how we look together.', alt: 'Arya and Bhumi sharing a close moment together' },
+      { src: '/videos/moment-04.mp4', poster: '/videos/posters/moment-04.webp', caption: 'Even a car ride looks lovely with you in it.', alt: 'Bhumi smiling in a car' },
     ] as MemoryVideo[],
   },
   reasons: {

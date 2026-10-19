@@ -8,18 +8,18 @@ export type Reason = { front: string; back: string };
 
 const responsive = (name: string, width: number) => `/photos/variants/${name} 480w, /photos/${name} ${width}w`;
 const photoDetails: Record<string, Partial<Photo>> = {
-  'us-sunset.webp': { kind: 'couple', caption: 'Us in the orange light.', alt: 'Arya and Bhumi together in warm sunset light', focalPoint: '50% 45%', srcSet: responsive('us-sunset.webp', 960) },
-  'us-restaurant.webp': { kind: 'couple', caption: 'A table, steel cups, and us.', alt: 'Arya and Bhumi sitting together at a restaurant table', focalPoint: '50% 50%', srcSet: responsive('us-restaurant.webp', 960) },
-  'bhumi-shy-smile.webp': { kind: 'solo', caption: 'The way you hide your smile behind your hands.', alt: 'Bhumi peeking over her hands at a table', focalPoint: '50% 34%', srcSet: responsive('bhumi-shy-smile.webp', 960) },
-  'bhumi-silly-face.webp': { kind: 'solo', caption: 'This face. I love this face.', alt: 'Bhumi making a playful face for the camera', focalPoint: '50% 30%', srcSet: responsive('bhumi-silly-face.webp', 959) },
-  'bhumi-soft-toys.webp': { kind: 'solo', caption: 'The little world of soft toys that reminds me of BHONDLU.', alt: 'Bhumi holding plush toys in a shop', focalPoint: '56% 48%', srcSet: responsive('bhumi-soft-toys.webp', 720) },
-  'bhumi-flowers.webp': { kind: 'solo', caption: 'You and those bright red flowers.', alt: 'Bhumi holding a bouquet of vivid red flowers', focalPoint: '50% 59%', srcSet: responsive('bhumi-flowers.webp', 960) },
-  'bhumi-snack.webp': { kind: 'solo', caption: 'You, caught in a little food moment.', alt: 'Bhumi taking a bite of a snack', focalPoint: '50% 40%', srcSet: responsive('bhumi-snack.webp', 723) },
-  'bhumi-night.webp': { kind: 'solo', caption: 'A quiet moment with you in the city lights.', alt: 'Bhumi sitting outside at night under city lights', focalPoint: '50% 42%', srcSet: responsive('bhumi-night.webp', 960) },
-  'bhumi-mirror.webp': { kind: 'solo', caption: 'You in a room full of pink.', alt: 'Bhumi taking a mirror photo in a pink room', focalPoint: '50% 50%', srcSet: responsive('bhumi-mirror.webp', 718) },
-  'bhumi-mango.webp': { kind: 'solo', caption: 'The candid moments I keep close.', alt: 'Bhumi taking a bite of fruit', focalPoint: '50% 34%', srcSet: responsive('bhumi-mango.webp', 960) },
-  'bhumi-closeup.webp': { kind: 'solo', caption: 'That little smile when you look down.', alt: 'Close-up of Bhumi smiling while looking down', focalPoint: '50% 32%', srcSet: responsive('bhumi-closeup.webp', 720) },
-  'bhumi-platform.webp': { kind: 'solo', caption: 'Every ordinary day with you becomes a memory.', alt: 'Bhumi standing on a train platform', focalPoint: '62% 43%', srcSet: responsive('bhumi-platform.webp', 960) },
+  'us-sunset.webp': { kind: 'couple', caption: "The sunset was beautiful. You were the part I couldn't stop looking at.", alt: 'Arya and Bhumi together in warm sunset light', focalPoint: '50% 45%', srcSet: responsive('us-sunset.webp', 960) },
+  'us-restaurant.webp': { kind: 'couple', caption: "I love how beautiful you look when we're just being us.", alt: 'Arya and Bhumi sitting together at a restaurant table', focalPoint: '50% 50%', srcSet: responsive('us-restaurant.webp', 960) },
+  'bhumi-shy-smile.webp': { kind: 'solo', caption: 'Even when you hide your smile, I still see how beautiful you are.', alt: 'Bhumi peeking over her hands at a table', focalPoint: '50% 34%', srcSet: responsive('bhumi-shy-smile.webp', 960) },
+  'bhumi-silly-face.webp': { kind: 'solo', caption: 'Even your silliest faces are beautiful to me.', alt: 'Bhumi making a playful face for the camera', focalPoint: '50% 30%', srcSet: responsive('bhumi-silly-face.webp', 959) },
+  'bhumi-soft-toys.webp': { kind: 'solo', caption: "Even among all those soft toys, you're the one I couldn't look away from.", alt: 'Bhumi holding plush toys in a shop', focalPoint: '56% 48%', srcSet: responsive('bhumi-soft-toys.webp', 720) },
+  'bhumi-flowers.webp': { kind: 'solo', caption: 'The flowers were lovely. You were the loveliest part of the day.', alt: 'Bhumi holding a bouquet of vivid red flowers', focalPoint: '50% 59%', srcSet: responsive('bhumi-flowers.webp', 960) },
+  'bhumi-snack.webp': { kind: 'solo', caption: 'I love how beautiful you are in the moments you never pose for.', alt: 'Bhumi taking a bite of a snack', focalPoint: '50% 40%', srcSet: responsive('bhumi-snack.webp', 723) },
+  'bhumi-night.webp': { kind: 'solo', caption: 'The city lights had nothing on how beautiful you looked.', alt: 'Bhumi sitting outside at night under city lights', focalPoint: '50% 42%', srcSet: responsive('bhumi-night.webp', 960) },
+  'bhumi-mirror.webp': { kind: 'solo', caption: 'That mirror caught a glimpse of how beautiful you are.', alt: 'Bhumi taking a mirror photo in a pink room', focalPoint: '50% 50%', srcSet: responsive('bhumi-mirror.webp', 718) },
+  'bhumi-mango.webp': { kind: 'solo', caption: 'You look beautiful even in the little candid moments.', alt: 'Bhumi taking a bite of fruit', focalPoint: '50% 34%', srcSet: responsive('bhumi-mango.webp', 960) },
+  'bhumi-closeup.webp': { kind: 'solo', caption: 'That little smile is the prettiest thing I know.', alt: 'Close-up of Bhumi smiling while looking down', focalPoint: '50% 32%', srcSet: responsive('bhumi-closeup.webp', 720) },
+  'bhumi-platform.webp': { kind: 'solo', caption: 'You make even an ordinary platform look beautiful.', alt: 'Bhumi standing on a train platform', focalPoint: '62% 43%', srcSet: responsive('bhumi-platform.webp', 960) },
 };
 const photoOrder = ['us-sunset.webp', 'us-restaurant.webp', 'bhumi-shy-smile.webp', 'bhumi-silly-face.webp', 'bhumi-soft-toys.webp', 'bhumi-flowers.webp', 'bhumi-snack.webp', 'bhumi-night.webp', 'bhumi-mirror.webp', 'bhumi-mango.webp', 'bhumi-closeup.webp', 'bhumi-platform.webp'];
 const galleryOrder = ['us-sunset.webp', 'us-restaurant.webp', 'bhumi-shy-smile.webp', 'bhumi-soft-toys.webp', 'bhumi-flowers.webp', 'bhumi-night.webp'];

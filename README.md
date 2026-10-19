@@ -22,20 +22,22 @@ The build output is in `dist/`.
 
 All scene copy, captions, dates, photo details, and the music path are in [`src/content.ts`](src/content.ts). Search for `TODO: REPLACE` to find details still needing a true personal memory. The anniversary is set to **5 February 2024**. The site deliberately does not claim a number of calm days or a particular method for handling overthinking.
 
-### Photos
+### Photos and videos
 
-Put `.avif`, `.webp`, `.jpg`, or `.png` photos in `public/photos/`. A manifest is generated automatically before `npm run dev` and `npm run build`. Filenames containing `solo` or `bhumi` are placed in the "Just you" scene; other photos enter the horizontal gallery. Use a filename like `bhumi-solo-01.webp` for a portrait. With no photos, the site shows clearly labeled placeholders.
+The 12 supplied photos are included as WebP files in `public/photos/`, with smaller responsive copies in `public/photos/variants/`. The five supplied clips are included in `public/videos/` with poster frames. They play only when tapped, one at a time; background music lowers while a video plays. Three clips contain saved screen recordings, including a conversation, so keep that in mind before changing the Site from private to public.
+
+To add more photos, put `.avif`, `.webp`, `.jpg`, or `.png` files in `public/photos/`. A manifest is generated automatically before `npm run dev` and `npm run build`. Filenames containing `solo` or `bhumi` enter the "Just you" scene. The featured horizontal gallery is curated through `galleryOrder` in `src/content.ts`.
 
 Set each photo's caption, date, alt text, and focal point in the `photoDetails` map in `src/content.ts`, keyed by its filename. You can also add a `srcSet` string for responsive WebP/AVIF variants. Example:
 
 ```ts
 const photoDetails: Record<string, Partial<Photo>> = {
-  'ramashraya.webp': {
-    caption: 'Dosa at Ramashraya, with you across the table.',
+  'new-photo.webp': {
+    caption: 'A little moment I keep close.',
     date: 'February 2024',
-    alt: 'Arya and Bhumi at Ramashraya',
+    alt: 'Arya and Bhumi together',
     focalPoint: '50% 42%',
-    srcSet: '/photos/ramashraya-640.webp 640w, /photos/ramashraya-1200.webp 1200w',
+    srcSet: '/photos/variants/new-photo.webp 480w, /photos/new-photo.webp 960w',
   },
 };
 ```

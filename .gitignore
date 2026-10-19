@@ -4,3 +4,5 @@ dist
 *.local
 *.tar.gz
 .npm-cache
+.tools
+.media-review

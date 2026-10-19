@@ -29,5 +29,9 @@ export function useAudio() {
     howl.current.fade(content.audio.baseVolume, Math.min(content.audio.baseVolume + 0.1, 0.4), 1600);
     window.setTimeout(() => howl.current?.fade(Math.min(content.audio.baseVolume + 0.1, 0.4), content.audio.baseVolume, 1600), 4500);
   }, [playing]);
-  return { playing, play, toggle, swell, available: content.audio.available };
+  const duck = useCallback((videoPlaying: boolean) => {
+    if (!howl.current || !playing) return;
+    howl.current.fade(howl.current.volume(), videoPlaying ? 0.035 : content.audio.baseVolume, 450);
+  }, [playing]);
+  return { playing, play, toggle, swell, duck, available: content.audio.available };
 }

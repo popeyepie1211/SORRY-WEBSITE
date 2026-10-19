@@ -1,18 +1,33 @@
 import { generatedPhotoPaths } from './generatedPhotos';
 
 export type Photo = { src: string | null; srcSet?: string; caption: string; date: string; focalPoint: string; alt: string; kind: 'couple' | 'solo' };
+export type MemoryVideo = { src: string; poster: string; caption: string; alt: string };
 export type AccountabilityCard = { title: string; body: string; icon: 'voice' | 'cloud' | 'trust' | 'home' };
 export type Milestone = { title: string; body: string };
 export type Reason = { front: string; back: string };
 
-// TODO: REPLACE these captions, dates and focal points with the real details of each photo.
-const photoDetails: Record<string, Partial<Photo>> = {};
+const responsive = (name: string, width: number) => `/photos/variants/${name} 480w, /photos/${name} ${width}w`;
+const photoDetails: Record<string, Partial<Photo>> = {
+  'us-sunset.webp': { kind: 'couple', caption: 'Us in the orange light.', alt: 'Arya and Bhumi together in warm sunset light', focalPoint: '50% 45%', srcSet: responsive('us-sunset.webp', 960) },
+  'us-restaurant.webp': { kind: 'couple', caption: 'A table, steel cups, and us.', alt: 'Arya and Bhumi sitting together at a restaurant table', focalPoint: '50% 50%', srcSet: responsive('us-restaurant.webp', 960) },
+  'bhumi-shy-smile.webp': { kind: 'solo', caption: 'The way you hide your smile behind your hands.', alt: 'Bhumi peeking over her hands at a table', focalPoint: '50% 34%', srcSet: responsive('bhumi-shy-smile.webp', 960) },
+  'bhumi-silly-face.webp': { kind: 'solo', caption: 'This face. I love this face.', alt: 'Bhumi making a playful face for the camera', focalPoint: '50% 30%', srcSet: responsive('bhumi-silly-face.webp', 959) },
+  'bhumi-soft-toys.webp': { kind: 'solo', caption: 'The little world of soft toys that reminds me of BHONDLU.', alt: 'Bhumi holding plush toys in a shop', focalPoint: '56% 48%', srcSet: responsive('bhumi-soft-toys.webp', 720) },
+  'bhumi-flowers.webp': { kind: 'solo', caption: 'You and those bright red flowers.', alt: 'Bhumi holding a bouquet of vivid red flowers', focalPoint: '50% 59%', srcSet: responsive('bhumi-flowers.webp', 960) },
+  'bhumi-snack.webp': { kind: 'solo', caption: 'You, caught in a little food moment.', alt: 'Bhumi taking a bite of a snack', focalPoint: '50% 40%', srcSet: responsive('bhumi-snack.webp', 723) },
+  'bhumi-night.webp': { kind: 'solo', caption: 'A quiet moment with you in the city lights.', alt: 'Bhumi sitting outside at night under city lights', focalPoint: '50% 42%', srcSet: responsive('bhumi-night.webp', 960) },
+  'bhumi-mirror.webp': { kind: 'solo', caption: 'You in a room full of pink.', alt: 'Bhumi taking a mirror photo in a pink room', focalPoint: '50% 50%', srcSet: responsive('bhumi-mirror.webp', 718) },
+  'bhumi-mango.webp': { kind: 'solo', caption: 'The candid moments I keep close.', alt: 'Bhumi taking a bite of fruit', focalPoint: '50% 34%', srcSet: responsive('bhumi-mango.webp', 960) },
+  'bhumi-closeup.webp': { kind: 'solo', caption: 'That little smile when you look down.', alt: 'Close-up of Bhumi smiling while looking down', focalPoint: '50% 32%', srcSet: responsive('bhumi-closeup.webp', 720) },
+  'bhumi-platform.webp': { kind: 'solo', caption: 'Every ordinary day with you becomes a memory.', alt: 'Bhumi standing on a train platform', focalPoint: '62% 43%', srcSet: responsive('bhumi-platform.webp', 960) },
+};
+const photoOrder = ['us-sunset.webp', 'us-restaurant.webp', 'bhumi-shy-smile.webp', 'bhumi-silly-face.webp', 'bhumi-soft-toys.webp', 'bhumi-flowers.webp', 'bhumi-snack.webp', 'bhumi-night.webp', 'bhumi-mirror.webp', 'bhumi-mango.webp', 'bhumi-closeup.webp', 'bhumi-platform.webp'];
+const galleryOrder = ['us-sunset.webp', 'us-restaurant.webp', 'bhumi-shy-smile.webp', 'bhumi-soft-toys.webp', 'bhumi-flowers.webp', 'bhumi-night.webp'];
 const loadedPhotos: Photo[] = generatedPhotoPaths.map((src, index) => {
   const name = decodeURIComponent(src.split('/').pop() ?? 'photo');
-  const kind = /solo|bhumi/i.test(name) ? 'solo' : 'couple';
+  const kind: Photo['kind'] = /solo|bhumi/i.test(name) ? 'solo' : 'couple';
   return {
     src,
-    // TODO: REPLACE with responsive variants when available, e.g. '/photos/us-640.webp 640w, /photos/us-1200.avif 1200w'.
     srcSet: undefined,
     caption: kind === 'solo' ? 'The light finds you everywhere.' : 'A little moment I keep close.',
     date: '',
@@ -21,6 +36,12 @@ const loadedPhotos: Photo[] = generatedPhotoPaths.map((src, index) => {
     kind,
     ...photoDetails[name],
   };
+}).sort((a, b) => {
+  const rank = (photo: Photo) => {
+    const index = photoOrder.indexOf(decodeURIComponent(photo.src?.split('/').pop() ?? ''));
+    return index < 0 ? photoOrder.length : index;
+  };
+  return rank(a) - rank(b);
 });
 
 export const content = {
@@ -31,6 +52,8 @@ export const content = {
     close: 'Close', showLetter: 'Show the full letter', openLetter: 'Open the letter',
     flipReason: 'Tap to turn over', photoPlaceholder: 'ADD PHOTO HERE', photoOpen: 'Open photo', photoPrevious: 'Previous photo', photoNext: 'Next photo',
     musicOnLabel: 'ON', musicOffLabel: 'OFF',
+    videoPlay: 'Play video', videoHeading: 'Little moving moments', videoIntro: 'Some memories are better left moving.',
+    soloPrevious: 'Previous portrait', soloNext: 'Next portrait',
     pause: 'Feel the heartbeat', vibrationOff: 'Turn vibration off',
     addAnniversary: 'Add our anniversary date to begin the count',
     days: 'days since we became us',
@@ -70,12 +93,19 @@ export const content = {
     eyebrow: '05 / THE LIGHT WE KNOW', title: 'Us, in all the little moments.',
     intro: 'Some moments stay with me, even when the world goes quiet.',
     soloTitle: 'Just you.', soloLine: 'You are the most beautiful thing in my life.',
-    photos: loadedPhotos.length ? loadedPhotos : [
+    photos: loadedPhotos.length ? loadedPhotos.filter((photo) => galleryOrder.includes(decodeURIComponent(photo.src?.split('/').pop() ?? ''))) : [
       { src: null, caption: 'Dosa at Ramashraya, and you across the table.', date: '', focalPoint: 'center', alt: 'Photo placeholder for Arya and Bhumi', kind: 'couple' },
       { src: null, caption: 'Sitting at Runwals, just yapping forever.', date: '', focalPoint: 'center', alt: 'Photo placeholder for Arya and Bhumi', kind: 'couple' },
       { src: null, caption: 'Our little world with BHONDLU.', date: '', focalPoint: 'center', alt: 'Photo placeholder for Arya and Bhumi', kind: 'couple' },
     ] as Photo[],
     soloPhotos: loadedPhotos.filter((photo) => photo.kind === 'solo'),
+    videos: [
+      { src: '/videos/moment-01.mp4', poster: '/videos/posters/moment-01.webp', caption: 'A little piece of you I saved.', alt: 'Saved screen recording of a short Bhumi video' },
+      { src: '/videos/moment-02.mp4', poster: '/videos/posters/moment-02.webp', caption: 'One of those clips I could watch again and again.', alt: 'Saved screen recording of Bhumi smiling on camera' },
+      { src: '/videos/moment-03.mp4', poster: '/videos/posters/moment-03.webp', caption: 'A little piece of our conversations.', alt: 'Saved screen recording of a conversation and a Bhumi video' },
+      { src: '/videos/moment-04.mp4', poster: '/videos/posters/moment-04.webp', caption: 'Just you, being you.', alt: 'Video of Bhumi showing her outfit' },
+      { src: '/videos/moment-05.mp4', poster: '/videos/posters/moment-05.webp', caption: 'A moment together on the stairs.', alt: 'Video of Arya and Bhumi together on stairs' },
+    ] as MemoryVideo[],
   },
   reasons: {
     eyebrow: '06 / THE THINGS I LOVE', title: 'Why I love you.',

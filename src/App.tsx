@@ -47,7 +47,7 @@ export default function App() {
   return <>
     <SkyBackground /><GroundGarden progress={scrollYProgress} celebrate={celebrate} /><ScrollProgress progress={scrollYProgress} /><CursorTrail />
     <main id="main-content"><Scene1Opening /><Scene2Apology /><Scene3Accountability /><Scene4Growth />
-      <Suspense fallback={<div className="scene-loading" aria-hidden="true" />}><Scene5Memories /><Scene6Reasons /><Scene7Heartbeat /><Scene8Letter onOpen={audio.swell} /><Scene9Question onYes={() => setCelebrate(true)} /></Suspense>
+      <Suspense fallback={<div className="scene-loading" aria-hidden="true" />}><Scene5Memories onVideoPlay={() => audio.duck(true)} onVideoPause={() => audio.duck(false)} /><Scene6Reasons /><Scene7Heartbeat /><Scene8Letter onOpen={audio.swell} /><Scene9Question onYes={() => setCelebrate(true)} /></Suspense>
     </main>
     {!gate && <MusicToggle playing={audio.playing} available={audio.available} onToggle={audio.toggle} />}
     <AnimatePresence>{loading && <LoadingScreen onReady={ready} />}</AnimatePresence>

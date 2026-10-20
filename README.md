@@ -20,7 +20,7 @@ The build output is in `dist/`.
 
 ## Make it personal
 
-All scene copy, captions, dates, photo details, and the music path are in [`src/content.ts`](src/content.ts). Search for `TODO: REPLACE` to find details still needing a true personal memory. The anniversary is set to **5 February 2024**. The site deliberately does not claim a number of calm days or a particular method for handling overthinking.
+All scene copy, captions, dates, photo details, and the music path are in [`src/content.ts`](src/content.ts). The anniversary is set to **5 February 2024**. The letter centers Arya's love for Bhumi, their shared memories, his hope that she stays, and his commitment to keep growing.
 
 ### Photos and videos
 

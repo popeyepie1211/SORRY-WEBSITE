@@ -82,3 +82,5 @@ button:focus-visible,a:focus-visible,[tabindex]:focus-visible{outline:2px solid 
 @media(max-width:700px){.videos-section{padding:6rem 0 0}.videos-intro{padding:0 24px}.video-rail{justify-content:flex-start;overflow-x:auto;scroll-snap-type:x mandatory;overscroll-behavior-inline:contain;gap:18px;padding:15px 14vw 30px;scrollbar-width:thin}.video-card,.video-card:nth-child(2n),.video-card:nth-child(3n){flex:0 0 min(72vw,290px);transform:none;scroll-snap-align:center}.video-card figcaption .font-hand{font-size:1.5rem}.solo-controls{bottom:28px}.solo-copy{padding-bottom:85px}}
 @media(max-width:390px){.scene{padding-left:19px;padding-right:19px}.reason-face strong{font-size:1.8rem}.reason-back{font-size:.75rem}.polaroid{width:76vw}.account-card h3{font-size:2.5rem}}
 @media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}.sky-layer,.apology-word{will-change:auto}.apology-word{opacity:1!important;filter:none!important}}
+.apology-scene{min-height:125svh}
+@media(max-width:900px){.apology-scene{min-height:auto}}

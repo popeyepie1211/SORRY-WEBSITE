@@ -14,9 +14,9 @@ export default function Scene9Question({ onYes }: { onYes: () => void }) {
     if (answer !== 'yes' || reduced) return;
     const heart = confetti.shapeFromText({ text: '♥', scalar: 1.2 });
     const fire = () => {
-      confetti({ particleCount: 55, spread: 75, origin: { x: .08, y: 1 }, colors: ['#1E96FC', '#FFC600', '#FCE300'], shapes: [heart, 'circle'], scalar: .85 });
-      confetti({ particleCount: 55, spread: 75, origin: { x: .92, y: 1 }, colors: ['#1E96FC', '#FFC600', '#FCE300'], shapes: [heart, 'circle'], scalar: .85 });
-      confetti({ particleCount: 25, spread: 360, startVelocity: 18, gravity: .55, origin: { x: .25 + Math.random() * .5, y: .17 + Math.random() * .28 }, colors: ['#A2D6F9', '#FCE300', '#1E96FC'], scalar: .7 });
+      confetti({ particleCount: 55, spread: 75, origin: { x: .08, y: 1 }, colors: ['#E8798A', '#F2B8A2', '#FFD9A0'], shapes: [heart, 'circle'], scalar: .85 });
+      confetti({ particleCount: 55, spread: 75, origin: { x: .92, y: 1 }, colors: ['#E8798A', '#F2B8A2', '#FFD9A0'], shapes: [heart, 'circle'], scalar: .85 });
+      confetti({ particleCount: 25, spread: 360, startVelocity: 18, gravity: .55, origin: { x: .25 + Math.random() * .5, y: .17 + Math.random() * .28 }, colors: ['#FFF6EA', '#FFD9A0', '#E8798A'], scalar: .7 });
     };
     fire();
     const interval = window.setInterval(fire, 1050);

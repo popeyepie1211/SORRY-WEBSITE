@@ -1,8 +1,1 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
-  <defs><radialGradient id="sky"><stop stop-color="#072AC8"/><stop offset=".55" stop-color="#072AC8"/><stop offset="1" stop-color="#1E96FC"/></radialGradient></defs>
-  <rect width="1200" height="630" fill="url(#sky)"/>
-  <circle cx="600" cy="292" r="126" fill="#A2D6F9" opacity=".16"/>
-  <text x="600" y="375" fill="#FCE300" text-anchor="middle" font-family="Georgia,serif" font-style="italic" font-size="124">For Bhumi</text>
-  <text x="600" y="440" fill="#A2D6F9" text-anchor="middle" font-family="sans-serif" letter-spacing="9" font-size="21">FROM ARYA, WITH LOVE</text>
-  <path d="M290 488H910" stroke="#FFC600" stroke-width="3" opacity=".75"/>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630"><defs><linearGradient id="sky" x2="0" y2="1"><stop stop-color="#05060F"/><stop offset=".65" stop-color="#2A1B4D"/><stop offset="1" stop-color="#E8798A"/></linearGradient></defs><rect width="1200" height="630" fill="url(#sky)"/><circle cx="600" cy="292" r="120" fill="#FFD9A0" opacity=".8"/><text x="600" y="375" fill="#FFF6EA" text-anchor="middle" font-family="Georgia,serif" font-style="italic" font-size="124">For Bhumi</text><text x="600" y="440" fill="#F2B8A2" text-anchor="middle" font-family="sans-serif" letter-spacing="9" font-size="21">FROM ARYA, WITH LOVE</text></svg>

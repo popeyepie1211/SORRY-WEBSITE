@@ -18,6 +18,8 @@ npm run preview
 
 The build output is in `dist/`.
 
+The site palette is Persian Blue `#072AC8`, Dodger Blue `#1E96FC`, Icy Blue `#A2D6F9`, Bright Lemon `#FCE300`, and School Bus Yellow `#FFC600`. The core swatches are declared in `src/styles.css` and mirrored in `tailwind.config.js`.
+
 ## Make it personal
 
 All scene copy, captions, dates, photo details, and the music path are in [`src/content.ts`](src/content.ts). Search for `TODO: REPLACE` to find details still needing a true personal memory. The anniversary is set to **5 February 2024**. The site deliberately does not claim a number of calm days or a particular method for handling overthinking.

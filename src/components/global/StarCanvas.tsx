@@ -10,7 +10,7 @@ function StarField({ count }: { count: number }) {
   }, [count]);
   const [stars, setStars] = useState<import('three').Points | null>(null);
   useFrame((state) => { if (stars) stars.rotation.z = Math.sin(state.clock.elapsedTime * 0.025) * 0.025; });
-  return <Points ref={setStars} positions={positions} stride={3} frustumCulled={false}><PointMaterial transparent color="#fff1e4" size={0.028} sizeAttenuation depthWrite={false} opacity={0.75} /></Points>;
+  return <Points ref={setStars} positions={positions} stride={3} frustumCulled={false}><PointMaterial transparent color="#A2D6F9" size={0.028} sizeAttenuation depthWrite={false} opacity={0.75} /></Points>;
 }
 
 export default function StarCanvas({ mobile, visible }: { mobile: boolean; visible: boolean }) {
